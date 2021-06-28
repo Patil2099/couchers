@@ -35,8 +35,8 @@ export async function createEvent(input: CreateEventInput) {
   req.setContent(input.content);
   req.setStartTime(Timestamp.fromDate(input.startTime));
   req.setEndTime(Timestamp.fromDate(input.endTime));
-  // TODO: dayjs "magic" to figure out timezone string to send
-  req.setTimezone("UTC");
+  // TODO: Use timezone string from user profile?
+  req.setTimezone("Etc/UTC");
 
   if (input.isOnline) {
     const onlineEventInfo = new OnlineEventInformation();
